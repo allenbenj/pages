@@ -1,0 +1,735 @@
+/* State v. Benjamin Allen - Shared Styles */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Crimson+Text:ital@0;1&family=Fredericka+the+Great&display=swap');
+
+:root {
+    --primary: #181826;
+    --secondary: #11111a;
+    --accent: #b32424;
+    --success: #2e7d32;
+    --warning: #ed6c02;
+    --light: #f5f5f7;
+    --dark: #050509;
+    --border: rgba(255,255,255,0.05);
+    /* Category Colors */
+    --cat-conflict: #b32424; /* red */
+    --cat-contradict: #b32424; /* red */
+    --cat-forensics: #60a5fa; /* blue */
+    --cat-forensic-warning: #f59e0b; /* amber */
+    --cat-investigative: #ed6c02; /* orange */
+    --cat-success: #2e7d32; /* green */
+    /* Card background shorthand */
+    --card-bg: rgba(17,17,26,0.92);
+    --card-gradient: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    --card-border: rgba(255,255,255,0.06);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: radial-gradient(circle at top, #181826, #050509);
+    color: var(--light);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header {
+    text-align: center;
+    padding: 40px 20px;
+    background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)), var(--card-bg);
+    border-radius: 18px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.45);
+    border: 1px solid rgba(255,255,255,0.08);
+    backdrop-filter: blur(8px);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.header:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.55);
+}
+
+.header h1 {
+    font-family: 'Fredericka the Great', cursive;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    background: linear-gradient(45deg, #ffffff, #e1e5e9);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.header h2 {
+    font-size: 1.5em;
+    color: var(--light);
+    font-weight: 300;
+}
+
+/* Navigation */
+.nav-tabs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+    /* make the nav tabs container visually match cards */
+    background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005)), var(--card-bg);
+    padding: 10px;
+    border-radius: 14px;
+    border: 1px solid rgba(255,255,255,0.05);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+}
+
+.nav-tab {
+    /* individual tabs look like pills on the card-like container */
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.08);
+    color: var(--light);
+    padding: 15px 25px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    font-size: 1.1em;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.45);
+    text-decoration: none;
+    display: inline-block;
+
+.nav-tab:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 36px rgba(0,0,0,0.6);
+    background: rgba(255,255,255,0.02);
+}
+
+.nav-tab.active {
+    background: var(--accent);
+    color: white;
+    box-shadow: 0 10px 32px rgba(179, 36, 36, 0.45);
+}
+
+.nav-tab:not(.active) { background: transparent; }
+.nav-tab:not(.active):hover { background: rgba(255,255,255,0.025); }
+
+/* Content Section */
+.content-section {
+    background: var(--card-gradient);
+    border-radius: 18px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.45);
+    border: 1px solid rgba(255,255,255,0.08);
+    backdrop-filter: blur(8px);
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.section-title {
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-align: center;
+    color: var(--light);
+    /* subtle badge-like background to make headings pop on the card bg */
+    display: inline-block;
+    padding: 8px 14px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.01);
+}
+
+/* Timeline */
+.timeline-container {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.timeline {
+    position: relative;
+    padding: 20px 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--secondary);
+    transform: translateX(-50%);
+}
+
+.timeline-event {
+    position: relative;
+    margin: 40px 0;
+    width: calc(50% - 56px);
+    max-width: 420px;
+    padding: 20px;
+    background: var(--card-bg);
+    border-radius: 18px;
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.45);
+    backdrop-filter: blur(8px);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.timeline-event:nth-child(odd) {
+    margin-left: 0;
+    margin-right: auto;
+}
+
+.timeline-event:nth-child(even) {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.timeline-event:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.55);
+}
+
+.event-time {
+    font-weight: bold;
+    color: var(--secondary);
+    margin-bottom: 10px;
+}
+
+.event-description {
+    color: var(--light);
+}
+
+/* Evidence Grid */
+.evidence-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+/* Three column layout */
+.three-cols {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 30px;
+}
+
+@media (max-width: 1100px) {
+    .three-cols {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 720px) {
+    .three-cols {
+        grid-template-columns: 1fr;
+    }
+}
+
+.evidence-card {
+    background: #0d0d0d;
+    border-radius: 18px;
+    padding: 22px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.45);
+    backdrop-filter: blur(8px);
+}
+
+.evidence-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.55);
+}
+
+.evidence-title {
+    font-size: 1.3em;
+    margin-bottom: 10px;
+    color: var(--light);
+}
+
+.evidence-status {
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: white;
+}
+
+.status-contradicts {
+    background: var(--accent);
+    color: white;
+}
+
+.status-impossible {
+    background: var(--warning);
+    color: white;
+}
+
+.status-ignored {
+    background: #95a5a6;
+}
+
+/* Relationship Map */
+.relationship-map {
+    width: 100%;
+    height: 500px;
+    background: #0d0d0d;
+    border-radius: 18px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.45);
+    backdrop-filter: blur(8px);
+}
+
+.person-node {
+    position: absolute;
+    width: 120px;
+    padding: 15px;
+    background: #0d0d0d;
+    border-radius: 14px;
+    text-align: center;
+    cursor: move;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.45);
+    border: 1px solid rgba(255,255,255,0.08);
+    user-select: none;
+    touch-action: none;
+    backdrop-filter: blur(8px);
+}
+
+.person-node:hover {
+    transform: scale(1.03);
+    z-index: 100;
+    box-shadow: 0 10px 24px rgba(0,0,0,0.6);
+}
+
+.person-node.dragging {
+    z-index: 1000;
+    opacity: 0.9;
+}
+
+.person-accuser { background: rgba(179, 36, 36, 0.92); }
+.person-defendant { background: rgba(46, 125, 50, 0.92); }
+.person-official { background: rgba(237, 108, 2, 0.92); }
+.person-witness { background: rgba(93, 64, 155, 0.92); }
+
+.connection {
+    position: absolute;
+    background: rgba(255,255,255,0.3);
+    transform-origin: 0 0;
+}
+
+/* Comparison Table */
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0; /* spacing handled by table-container */
+    background: transparent; /* rely on table-container for card styling */
+    border-radius: 10px;
+    overflow: hidden;
+    border: none; /* handled by table-container */
+}
+
+.comparison-table td { 
+    word-break: break-word;
+    padding: 14px 18px;
+}
+
+.comparison-table th {
+    padding: 14px 18px;
+}
+
+.table-container { 
+    overflow-x: auto; 
+    /* table wrapper uses the same card styling for visual consistency */
+    background: var(--card-gradient);
+    border-radius: 14px;
+    padding: 24px;
+    border: 1px solid rgba(255,255,255,0.05);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.45);
+    margin: 18px 0;
+    max-width: 100%;
+}
+
+.comparison-table th {
+    /* header: slightly brighter to distinguish table header rows */
+    background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.04));
+    color: var(--light);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.comparison-table tbody tr:hover { background: rgba(255,255,255,0.01); }
+    /* match the card background while adding slight tint for contrast */
+    background: rgba(255,255,255,0.03);
+    color: var(--light);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.conclusion-badge {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: bold;
+    margin: 5px;
+}
+
+.badge-false { background: var(--accent); }
+.badge-true { background: var(--success); }
+
+/* Action Grid */
+.action-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.action-card {
+    background: #0d0d0d;
+    border-radius: 18px;
+    padding: 25px;
+    text-align: center;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.45);
+    backdrop-filter: blur(8px);
+}
+
+.action-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.55);
+}
+
+.action-icon {
+    font-size: 3em;
+    margin-bottom: 15px;
+}
+
+/* Stats Container */
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.stat-card {
+    background: #0d0d0d;
+    border-radius: 18px;
+    padding: 25px;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.45);
+    backdrop-filter: blur(8px);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.55);
+}
+
+.stat-number {
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.stat-label {
+    font-size: 1.1em;
+    opacity: 0.9;
+}
+
+/* Apple Card Styles */
+.apple-card {
+    background: var(--card-bg);
+    padding: 22px;
+    border-radius: 18px;
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.45);
+    backdrop-filter: blur(8px);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.apple-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.55);
+}
+
+.apple-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #f5f5f7;
+    margin-bottom: 14px;
+    letter-spacing: 0.4px;
+}
+
+.apple-subtext {
+    color: #d1d1d3;
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+    line-height: 1.45;
+}
+
+.apple-image-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.apple-img {
+    width: 100%;
+    border-radius: 14px;
+    border: 1px solid rgba(255,255,255,0.12);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.55);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    cursor: pointer;
+}
+
+.apple-img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.6);
+}
+
+/* Scene Card Grid */
+.scene-card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 30px;
+}
+
+@media (max-width: 1000px) {
+    .scene-card-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .scene-card-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.scene-evidence-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.scene-evidence-grid .evidence-card {
+    min-height: 280px;
+    padding: 25px;
+}
+
+.scene-evidence-grid .evidence-card ul {
+    line-height: 1.8;
+}
+
+.scene-evidence-grid .evidence-card li {
+    margin-bottom: 8px;
+}
+
+/* Responsive Timeline */
+@media (max-width: 768px) {
+    .timeline::before {
+        left: 20px;
+    }
+    
+    .timeline-event {
+        width: calc(100% - 40px);
+        margin: 20px 0; /* stack on mobile */
+    }
+    
+    .apple-image-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Evidence Brief Full - Page Styles */
+.page { max-width: 1200px; margin: 0 auto; padding: 32px 20px 64px; }
+.hero { margin-bottom: 18px; }
+.hero-title { font-size: 2.6rem; letter-spacing: 0.04em; font-weight: 600; }
+.hero-subtitle { margin-top: 8px; font-size: 0.95rem; max-width: 640px; opacity: 0.8; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; margin-top: 24px; }
+.card { background: rgba(17,17,26,0.92); border-radius: 18px; padding: 18px; box-shadow: 0 18px 40px rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.05); backdrop-filter: blur(18px); display: flex; flex-direction: column; justify-content: space-between; }
+.card-label { 
+    font-size: 0.7rem !important; 
+    text-transform: uppercase; 
+    letter-spacing: 0.16em; 
+    opacity: 0.6; 
+    margin: 0 0 12px 0 !important;
+    padding: 0 !important;
+    display: block;
+    font-weight: 400;
+}
+.card-title { margin-top: 6px; margin-bottom: 8px; font-size: 1.02rem; font-weight: 600; }
+.card-body { font-size: 0.86rem; line-height: 1.55; opacity: 0.9; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; }
+
+/* Table of contents and anchors */
+.toc-card { margin-top: 18px; padding: 14px; border-left: 4px solid rgba(255,255,255,0.06); }
+.toc-card a { display:inline-block; margin-right: 12px; color: var(--light); text-decoration: none; opacity: 0.95; }
+.toc-card a:hover { text-decoration: underline; }
+
+/* Unified card styling: apply the .card visual style across common card classes */
+.card, .evidence-card, .apple-card, .stat-card, .action-card, .timeline-event {
+    background: rgba(17,17,26,0.92);
+    border-radius: 18px;
+    padding: 18px;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.6);
+    border: 1px solid rgba(255,255,255,0.05);
+    backdrop-filter: blur(18px);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.evidence-card, .apple-card, .action-card, .stat-card, .timeline-event { /* adjust default padding variation */
+    padding: 18px;
+}
+
+/* Category border accent - applies colored left border based on semantic meaning */
+/* Conflict/Legal Issues - Red (#b32424) */
+.card:has(.card-label) .card-label:first-child { /* ensure we're targeting cards with labels */ }
+.card { border-left: 4px solid rgba(255,255,255,0.05); } /* default subtle border */
+
+/* Red border for conflicts, violations, contradictions, constitutional issues, prosecutorial */
+[class*="conflict" i] .card,
+[class*="violation" i] .card,
+[class*="contradiction" i] .card,
+[class*="constitutional" i] .card,
+[class*="prosecutorial" i] .card,
+[class*="prosecutor" i] .card,
+.card:has([class*="Conflict"]),
+.card:has([class*="Contradiction"]),
+.card:has([class*="Constitutional"]),
+.card:has([class*="Prosecutorial"]),
+.card:has([class*="Prosecutor"]),
+.card:has([class*="Accuser"]) { border-left: 6px solid var(--cat-conflict) !important; }
+
+/* Orange border for investigation, bias, procedure */
+.card:has([class*="Investigat"]),
+.card:has([class*="Bias"]),
+.card:has([class*="Procedure"]) { border-left: 6px solid var(--cat-investigative) !important; }
+
+/* Blue border for forensics, authentication, technical */
+.card:has([class*="Forensic"]),
+.card:has([class*="Authentication"]),
+.card:has([class*="Injury"]) { border-left: 6px solid var(--cat-forensics) !important; }
+
+/* Amber border for witnesses, evidence, relationships, timeline */
+.card:has([class*="Witness"]),
+.card:has([class*="Evidence"]),
+.card:has([class*="Relationship"]),
+.card:has([class*="Timeline"]),
+.card:has([class*="Logic"]),
+.card:has([class*="Key Witness"]),
+.card:has([class*="Initial Officer"]),
+.card:has([class*="Third Party"]) { border-left: 6px solid var(--cat-forensic-warning) !important; }
+
+/* Green border for defendant, defense, remedy, solutions */
+.card:has([class*="Defendant"]),
+.card:has([class*="Defense"]),
+.card:has([class*="Remedy"]),
+.card:has([class*="Accountability"]),
+.card:has([class*="Oversight"]) { border-left: 6px solid var(--cat-success) !important; }
+
+/* Generic fallback categories */
+.card-conflict, .card-contradict { border-left: 6px solid var(--cat-conflict); }
+.card-forensics { border-left: 6px solid var(--cat-forensics); }
+.card-forensic-warning { border-left: 6px solid var(--cat-forensic-warning); }
+.card-investigative { border-left: 6px solid var(--cat-investigative); }
+.card-success { border-left: 6px solid var(--cat-success); }
+
+/* Label icons for categories: placed before .card-label text */
+.card-conflict .card-label::before { content: '⚠️'; margin-right: 8px; }
+.card-contradict .card-label::before { content: '✖'; margin-right: 8px; }
+.card-forensics .card-label::before { content: '🔬'; margin-right: 8px; }
+.card-investigative .card-label::before { content: '🔎'; margin-right: 8px; }
+.card-success .card-label::before { content: '✔'; margin-right: 8px; }
+
+.evidence-card:hover, .apple-card:hover, .action-card:hover, .stat-card:hover, .timeline-event:hover, .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.55);
+}
+
+/* Back to top */
+.back-to-top { display:block; margin-top: 12px; font-size:0.9rem; opacity: 0.9; text-align:right; }
+.back-to-top a { color: var(--light); text-decoration: none; }
+.back-to-top a:hover { text-decoration: underline; }
+
+/* Print Styles */
+@media print {
+    body { background: white; color: black; }
+    .header, .nav-tabs, .nav-tab, .action-grid .action-card, .person-node { display: none !important; }
+    .content-section { box-shadow: none; border: none; background: transparent; }
+    .card { box-shadow: none; border: none; background: transparent; }
+}
+
+/* Sticky TOC and layout for wide view */
+@media (min-width: 1100px) {
+    main.page { display: grid; grid-template-columns: 1fr 320px; gap: 24px; align-items: start; }
+    .toc-card { position: sticky; top: 96px; height: fit-content; grid-column: 2; }
+    main.page > :not(.toc-card) { grid-column: 1; }
+}
+
+/* Floating action button for print / download PDF */
+.fab-print {
+    position: fixed;
+    z-index: 1100;
+    top: 120px; /* slightly below header */
+    right: 22px;
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 12px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.45);
+}
+.fab-print:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(0,0,0,0.55); }
+
+/* Copy link button (small icon in each card) */
+.card, .evidence-card, .apple-card { position: relative; }
+.copy-link {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: none;
+    background: transparent;
+    color: var(--light);
+    opacity: 0.8;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 4px 6px;
+    border-radius: 6px;
+}
+.copy-link:hover { background: rgba(255,255,255,0.04); opacity: 1; }
+.copy-link.copied { color: #60a5fa; }
+
+/* Ensure small screens: keep floating button out of the way, TOC not sticky */
+@media (max-width: 1100px) {
+    .fab-print { top: auto; bottom: 22px; right: 18px; }
+    .toc-card { position: static; }
+    main.page { display: block; }
+}
+.pill-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.pill { font-size: 0.7rem; padding: 4px 9px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.12); opacity: 0.8; }
+

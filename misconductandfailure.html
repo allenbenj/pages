@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>State v. Benjamin Allen - Relationships</title>
+    <link rel="stylesheet" href="shared/styles.css?v=639006186749527756">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>An Edifice of Lies</h1>
+            <h2>A gavel is just a small hammer used to nail shut the coffin of due process.</h2>
+        </div>
+
+       <link rel="stylesheet" href="shared/carousel-nav.css">
+        
+        <div class="carousel-nav-wrapper">
+            <div class="orbital-ring ring-1"></div>
+            <div class="orbital-ring ring-2"></div>
+            <div class="orbital-ring ring-3"></div>
+            
+            <img src="documents/graphics/logo_for_the_abused.png" alt="Logo" class="carousel-center">
+            
+            <div class="carousel-orbital-track" id="orbitalTrack">
+                <div class="orbital-item" data-href="index.html"><a href="index.html" class="orbital-nav-link">Overview</a></div>
+                <div class="orbital-item" data-href="players.html"><a href="players.html" class="orbital-nav-link">Key Players</a></div>
+                <div class="orbital-item" data-href="connections.html"><a href="connections.html" class="orbital-nav-link">Connections</a></div>
+                <div class="orbital-item" data-href="timeline.html"><a href="timeline.html" class="orbital-nav-link">Timeline</a></div>
+                <div class="orbital-item" data-href="evidence.html"><a href="evidence.html" class="orbital-nav-link">Evidence</a></div>
+                <div class="orbital-item" data-href="misconduct.html"><a href="misconduct.html" class="orbital-nav-link">Misconduct</a></div>
+                <div class="orbital-item" data-href="contradictions.html"><a href="contradictions.html" class="orbital-nav-link">Contradictions</a></div>
+                <div class="orbital-item" data-href="scene.html"><a href="scene.html" class="orbital-nav-link">Scene</a></div>
+                <div class="orbital-item" data-href="contradictions_grouped.html"><a href="contradictions_grouped.html" class="orbital-nav-link">List of Lies</a></div>
+                <div class="orbital-item" data-href="misconductandfailure.html"><a href="misconductandfailure.html" class="orbital-nav-link">Mindmaps</a></div>
+                <div class="orbital-item" data-href="documentspage.html"><a href="documentspage.html" class="orbital-nav-link">Documents</a></div>
+                <div class="orbital-item" data-href="solutions.html"><a href="solutions.html" class="orbital-nav-link">Solutions</a></div>
+            </div>
+            
+            <div class="carousel-indicators" id="indicators"></div>
+            <div class="hover-zone hover-left" id="hoverLeft"><span class="hover-arrow">‹</span></div>
+            <div class="hover-zone hover-right" id="hoverRight"><span class="hover-arrow">›</span></div>
+        </div>
+        
+        <script src="shared/orbital-carousel.js"></script>
+
+       
+          <!-- Misconduct Mindmap -->
+            <section id="mindmap" class="mindmap-section">
+                <h2 class="section-title">
+                    Detective Steve Freeman Misconduct &amp; Systemic Failures
+                </h2> 
+                <p class="mindmap-intro">
+                    Expand each branch to trace how misconduct decisions connect to systemic culture, legal duties, and ultimate case impact.
+                </p>
+<style>
+   
+ .mindmap-section {
+        max-width: 1400px;
+        margin: 40px auto 0;
+        padding: 48px 32px 56px;
+        background: #1e293b;
+        border-radius: 18px;
+        border: 1px solid rgba(255,255,255,0.08);
+        box-shadow: 0 10px 28px rgba(0,0,0,0.65);
+    }
+
+    .mindmap-intro {
+        text-align: center;
+        font-size: 0.9rem;
+        opacity: 0.85;
+        margin-top: 8px;
+        margin-bottom: 40px;
+        color: #cbd5e1;
+    }
+
+    /* Mindmap Container */
+    .mindmap-container {
+        position: relative;
+        margin-top: 32px;
+    }
+
+    .mindmap-controls {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 12px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .mindmap-controls button {
+        background: #1e293b;
+        border: 1px solid rgba(255,255,255,0.15);
+        color: #e2e8f0;
+        padding: 8px 16px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        transition: all 0.2s ease;
+    }
+
+    .mindmap-controls button:hover {
+        background: #334155;
+        border-color: rgba(255,255,255,0.25);
+    }
+
+    .mindmap-controls button:active {
+        background: #475569;
+    }
+
+    .mindmap-controls .zoom-level {
+        color: #94a3b8;
+        font-size: 13px;
+        margin-left: 8px;
+        min-width: 50px;
+    }
+
+    .mindmap-wrapper {
+        width: 100%;
+        height: 700px;
+        overflow: hidden;
+        background: #1a1d29;
+        border-radius: 12px;
+        border: 1px solid rgba(255,255,255,0.1);
+        position: relative;
+    }
+
+    .mindmap-viewport {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        cursor: grab;
+        padding: 0;
+        background: #1a1d29;
+    }
+
+    .mindmap-viewport:active {
+        cursor: grabbing;
+    }
+
+    .mindmap-viewport svg {
+        display: block;
+    }
+
+    /* SVG node hover effects */
+    .mindmap-node-group rect {
+        transition: all 0.2s ease;
+    }
+
+    .mindmap-node-group:hover rect {
+        filter: brightness(1.2);
+    }
+
+    .caret-button rect {
+        transition: all 0.2s ease;
+    }
+
+    .caret-button:hover rect {
+        fill: rgba(134, 239, 172, 0.2) !important;
+        stroke: #86efac !important;
+    }
+
+    .mindmap-back-link {
+        text-align: center;
+        margin: 32px 0 0;
+        font-size: 0.9rem;
+    }
+
+    .mindmap-back-link a {
+        color: #60a5fa;
+        text-decoration: none;
+    }
+
+    @media (max-width: 900px) {
+        .mindmap-controls {
+            justify-content: center;
+        }
+    }
+</style>
+
+                <div class="mindmap-container" id="mindmap-container-1">
+                    <div class="mindmap-controls">
+                        <button class="zoom-in" title="Zoom In">🔍+ Zoom In</button>
+                        <button class="zoom-out" title="Zoom Out">🔍- Zoom Out</button>
+                        <button class="zoom-reset" title="Reset View">↺ Reset</button>
+                        <button class="zoom-fit" title="Fit to View">⬜ Fit</button>
+                        <button class="expand-all" title="Expand All">▶ Expand All</button>
+                        <button class="collapse-all" title="Collapse All">◀ Collapse All</button>
+                        <span class="zoom-level">100%</span>
+                    </div>
+                    <div class="mindmap-wrapper">
+                        <div class="mindmap-viewport">
+                            <p style="color:#94a3b8;padding:40px;text-align:center;">Loading mindmap...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="mindmap-back-link">
+                    <a href="#misconduct">↑ Back to Misconduct Overview</a>
+                </p>
+            </section>
+
+            <!-- Second Mindmap: Legal/Prosecutorial Failures -->
+            <section id="mindmap-2" class="mindmap-section" style="margin-top: 60px;">
+                <h2 class="section-title">
+                    Legal & Prosecutorial Failures
+                </h2> 
+                <p class="mindmap-intro">
+                    Analysis of ADA Bartholomew's conduct, systemic legal failures, and constitutional violations.
+                </p>
+
+                <div class="mindmap-container" id="mindmap-container-2">
+                    <div class="mindmap-controls">
+                        <button class="zoom-in" title="Zoom In">🔍+ Zoom In</button>
+                        <button class="zoom-out" title="Zoom Out">🔍- Zoom Out</button>
+                        <button class="zoom-reset" title="Reset View">↺ Reset</button>
+                        <button class="zoom-fit" title="Fit to View">⬜ Fit</button>
+                        <button class="expand-all" title="Expand All">▶ Expand All</button>
+                        <button class="collapse-all" title="Collapse All">◀ Collapse All</button>
+                        <span class="zoom-level">100%</span>
+                    </div>
+                    <div class="mindmap-wrapper">
+                        <div class="mindmap-viewport">
+                            <p style="color:#94a3b8;padding:40px;text-align:center;">Loading mindmap...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="mindmap-back-link">
+                    <a href="#misconduct">↑ Back to Misconduct Overview</a>
+                </p>
+            </section>
+
+            <script src="shared/card-mapper.js"></script>
+            <script src="shared/card-colors.js"></script>
+            <script>
+              document.addEventListener('DOMContentLoaded', async function () {
+                
+                class MindmapViewer {
+                    constructor(containerId, opmlUrl) {
+                        this.container = document.getElementById(containerId);
+                        if (!this.container) return;
+
+                        this.opmlUrl = opmlUrl;
+                        this.viewport = this.container.querySelector('.mindmap-viewport');
+                        this.zoomDisplay = this.container.querySelector('.zoom-level');
+                        
+                        // State
+                        this.scale = 0.8;
+                        this.panX = 50;
+                        this.panY = 100;
+                        this.isPanning = false;
+                        this.startX = 0;
+                        this.startY = 0;
+                        this.rootNode = null;
+
+                        this.init();
+                    }
+
+                    async init() {
+                        this.setupControls();
+                        this.setupMouseEvents();
+                        await this.loadOPML();
+                    }
+
+                    setupControls() {
+                        const controls = {
+                            '.zoom-in': () => { this.scale = Math.min(this.scale * 1.25, 3); this.updateTransform(); },
+                            '.zoom-out': () => { this.scale = Math.max(this.scale * 0.8, 0.3); this.updateTransform(); },
+                            '.zoom-reset': () => { this.scale = 0.8; this.panX = 50; this.panY = 100; this.updateTransform(); },
+                            '.zoom-fit': () => { this.scale = 0.8; this.panX = 50; this.panY = 100; this.updateTransform(); },
+                            '.expand-all': () => { if(this.rootNode) { this.expandAll(this.rootNode); this.renderMindmap(this.rootNode); } },
+                            '.collapse-all': () => { if(this.rootNode) { this.collapseAll(this.rootNode); this.rootNode.collapsed = false; this.renderMindmap(this.rootNode); } }
+                        };
+
+                        for (const [selector, handler] of Object.entries(controls)) {
+                            const btn = this.container.querySelector(selector);
+                            if (btn) btn.addEventListener('click', handler);
+                        }
+                    }
+
+                    setupMouseEvents() {
+                        // Pan
+                        this.viewport.addEventListener('mousedown', (e) => {
+                            if (e.target.closest('.caret-button') || e.target.tagName === 'rect') return;
+                            this.isPanning = true;
+                            this.startX = e.clientX - this.panX;
+                            this.startY = e.clientY - this.panY;
+                            this.viewport.style.cursor = 'grabbing';
+                        });
+
+                        document.addEventListener('mousemove', (e) => {
+                            if (!this.isPanning) return;
+                            this.panX = e.clientX - this.startX;
+                            this.panY = e.clientY - this.startY;
+                            this.updateTransform();
+                        });
+
+                        document.addEventListener('mouseup', () => {
+                            this.isPanning = false;
+                            this.viewport.style.cursor = 'grab';
+                        });
+
+                        // Zoom wheel
+                        this.viewport.addEventListener('wheel', (e) => {
+                            e.preventDefault();
+                            const delta = e.deltaY > 0 ? 0.9 : 1.1;
+                            const newScale = Math.max(0.3, Math.min(3, this.scale * delta));
+                            
+                            const rect = this.viewport.getBoundingClientRect();
+                            const mouseX = e.clientX - rect.left;
+                            const mouseY = e.clientY - rect.top;
+                            
+                            this.panX = mouseX - (mouseX - this.panX) * (newScale / this.scale);
+                            this.panY = mouseY - (mouseY - this.panY) * (newScale / this.scale);
+                            this.scale = newScale;
+                            
+                            this.updateTransform();
+                        }, { passive: false });
+                    }
+
+                    updateTransform() {
+                        const svg = this.viewport.querySelector('svg');
+                        if (svg) {
+                            svg.style.transform = `translate(${this.panX}px, ${this.panY}px) scale(${this.scale})`;
+                        }
+                        if (this.zoomDisplay) {
+                            this.zoomDisplay.textContent = Math.round(this.scale * 100) + '%';
+                        }
+                    }
+
+                    async loadOPML() {
+                        try {
+                            const response = await fetch(this.opmlUrl);
+                            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                            const opmlText = await response.text();
+                            const parser = new DOMParser();
+                            const opmlDoc = parser.parseFromString(opmlText, 'text/xml');
+                            
+                            const rootOutline = opmlDoc.querySelector('body > outline');
+                            if (rootOutline) {
+                                this.rootNode = this.parseOPMLNode(rootOutline, null);
+                                this.renderMindmap(this.rootNode);
+
+                                // Add gradients
+                                const svg = this.viewport.querySelector('svg');
+                                if (svg) this.addGradients(svg);
+                            }
+                        } catch (error) {
+                            console.error('Failed to load mindmap OPML:', error);
+                            this.viewport.innerHTML = `<p style="color:#ef4444;padding:20px;">Failed to load mindmap.<br>Error: ${error.message}</p>`;
+                        }
+                    }
+
+                    parseOPMLNode(outline, parent) {
+                        const node = {
+                            id: Math.random().toString(36).substr(2, 9),
+                            text: outline.getAttribute('text') || 'Untitled',
+                            children: [],
+                            parent: parent,
+                            collapsed: true
+                        };
+                        
+                        const children = outline.querySelectorAll(':scope > outline');
+                        children.forEach(child => {
+                            node.children.push(this.parseOPMLNode(child, node));
+                        });
+                        
+                        return node;
+                    }
+
+                    calculateLayout(node, level = 0, yOffset = 0) {
+                        const levelWidth = 800;
+                        const nodeHeight = 100;
+                        
+                        node.level = level;
+                        node.x = level * levelWidth;
+                        
+                        if (node.children.length === 0) {
+                            node.y = yOffset;
+                            return yOffset + nodeHeight;
+                        }
+                        
+                        let childYOffset = yOffset;
+                        const visibleChildren = node.collapsed ? [] : node.children;
+                        
+                        visibleChildren.forEach(child => {
+                            childYOffset = this.calculateLayout(child, level + 1, childYOffset);
+                        });
+                        
+                        if (visibleChildren.length > 0) {
+                            const firstChild = visibleChildren[0];
+                            const lastChild = visibleChildren[visibleChildren.length - 1];
+                            node.y = (firstChild.y + lastChild.y) / 2;
+                        } else {
+                            node.y = yOffset;
+                            childYOffset = yOffset + nodeHeight;
+                        }
+                        
+                        return childYOffset;
+                    }
+
+                    renderMindmap(rootNode) {
+                        this.rootNode = rootNode; // Update reference
+                        rootNode.collapsed = false; // Ensure root is always expanded visually
+                        
+                        this.calculateLayout(rootNode, 0, 100);
+                        
+                        // Create SVG
+                        const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+                        svg.setAttribute('width', '8000');
+                        svg.setAttribute('height', '8000');
+                        svg.style.transformOrigin = '0 0';
+                        
+                        const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+                        svg.appendChild(g);
+                        
+                        this.drawNode(g, rootNode);
+                        
+                        this.viewport.innerHTML = '';
+                        this.viewport.appendChild(svg);
+                        this.updateTransform();
+                        // Re-add gradients since innerHTML clear removed them if they were there
+                        this.addGradients(svg);
+                    }
+
+                    drawNode(container, node) {
+                        if (!node.collapsed && node.children.length > 0) {
+                            node.children.forEach(child => {
+                                this.drawConnection(container, node, child);
+                                this.drawNode(container, child);
+                            });
+                        }
+                        
+                        const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+                        g.setAttribute('transform', `translate(${node.x}, ${node.y})`);
+                        g.setAttribute('class', 'mindmap-node-group');
+                        g.dataset.nodeId = node.id;
+                        
+                        // Dimensions
+                        const fontSize = node.level === 0 ? 16 : 14;
+                        const maxWidth = node.level === 0 ? 450 : 700;
+                        const padding = 16;
+                        const lineHeight = fontSize * 1.4;
+                        
+                        // Text wrapping
+                         const words = node.text.split(' ');
+                         const lines = [];
+                         let currentLine = '';
+                         const charWidth = fontSize * 0.6;
+                         
+                         words.forEach(word => {
+                            const testLine = currentLine ? currentLine + ' ' + word : word;
+                            const testWidth = testLine.length * charWidth;
+                            if (testWidth > maxWidth - padding * 2 && currentLine) {
+                                lines.push(currentLine);
+                                currentLine = word;
+                            } else {
+                                currentLine = testLine;
+                            }
+                         });
+                         if (currentLine) lines.push(currentLine);
+
+                        const longestLine = lines.reduce((max, line) => Math.max(max, line.length), 0);
+                        const boxWidth = Math.min(maxWidth, Math.max(250, longestLine * charWidth + padding * 2));
+                        const boxHeight = Math.max(50, lines.length * lineHeight + padding);
+                        node.boxWidth = boxWidth;
+
+                        // Rect
+                        const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+                        rect.setAttribute('x', '0');
+                        rect.setAttribute('y', -boxHeight / 2);
+                        rect.setAttribute('width', boxWidth);
+                        rect.setAttribute('height', boxHeight);
+                        rect.setAttribute('rx', '8');
+                        
+                        if (node.level === 0) {
+                            rect.setAttribute('fill', 'url(#blueGradient)'); // This ID needs to be unique if gradients differ, but shared is fine
+                            rect.setAttribute('stroke', '#60a5fa');
+                            rect.setAttribute('stroke-width', '2');
+                        } else {
+                            rect.setAttribute('fill', 'rgba(51, 65, 85, 0.7)');
+                            rect.setAttribute('stroke', 'rgba(134, 239, 172, 0.4)');
+                            rect.setAttribute('stroke-width', '1');
+                        }
+                        
+                        // Toggle click
+                        if (node.children.length > 0) {
+                            rect.style.cursor = 'pointer';
+                            rect.addEventListener('click', () => {
+                                node.collapsed = !node.collapsed;
+                                this.renderMindmap(this.rootNode);
+                            });
+                        }
+
+                        g.appendChild(rect);
+
+                        // Text
+                        const startY = -(lines.length - 1) * lineHeight / 2;
+                        lines.forEach((line, i) => {
+                            const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+                            text.setAttribute('x', boxWidth / 2);
+                            text.setAttribute('y', startY + i * lineHeight);
+                            text.setAttribute('text-anchor', 'middle');
+                            text.setAttribute('dominant-baseline', 'middle');
+                            text.setAttribute('fill', node.level === 0 ? '#fff' : '#e2e8f0');
+                            text.setAttribute('font-size', fontSize);
+                            text.setAttribute('font-weight', node.level === 0 ? '600' : '400');
+                            text.textContent = line;
+                            g.appendChild(text);
+                        });
+
+                        // Caret
+                        if (node.children.length > 0) {
+                             const caretG = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+                             caretG.setAttribute('transform', 'translate(-30, -10)');
+                             caretG.setAttribute('class', 'caret-button');
+                             caretG.style.cursor = 'pointer';
+                             
+                             const caretRect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+                             caretRect.setAttribute('width', '20');
+                             caretRect.setAttribute('height', '20');
+                             caretRect.setAttribute('rx', '4');
+                             caretRect.setAttribute('fill', 'rgba(51, 65, 85, 0.8)');
+                             caretRect.setAttribute('stroke', node.level === 0 ? '#3b82f6' : 'rgba(134, 239, 172, 0.4)');
+                             caretG.appendChild(caretRect);
+                             
+                             const caretText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+                             caretText.setAttribute('x', '10');
+                             caretText.setAttribute('y', '14');
+                             caretText.setAttribute('text-anchor', 'middle');
+                             caretText.setAttribute('fill', node.level === 0 ? '#60a5fa' : '#86efac');
+                             caretText.setAttribute('font-weight', 'bold');
+                             caretText.textContent = node.collapsed ? '›' : '‹';
+                             caretG.appendChild(caretText);
+                             
+                             caretG.addEventListener('click', (e) => {
+                                 e.stopPropagation();
+                                 node.collapsed = !node.collapsed;
+                                 this.renderMindmap(this.rootNode);
+                             });
+                             g.appendChild(caretG);
+                        }
+
+                        container.appendChild(g);
+                    }
+
+                    drawConnection(container, parent, child) {
+                        const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                        const x1 = parent.x + (parent.boxWidth || 250);
+                        const y1 = parent.y;
+                        const x2 = child.x;
+                        const y2 = child.y;
+                        const midX = (x1 + x2) / 2;
+                        const d = `M ${x1} ${y1} C ${midX} ${y1}, ${midX} ${y2}, ${x2} ${y2}`;
+                        path.setAttribute('d', d);
+                        path.setAttribute('fill', 'none');
+                        path.setAttribute('stroke', 'rgba(134, 239, 172, 0.3)');
+                        path.setAttribute('stroke-width', '2');
+                        container.appendChild(path);
+                    }
+
+                    addGradients(svg) {
+                        if (svg.querySelector('#blueGradient')) return; // Already exists
+                        const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
+                        const gradient = document.createElementNS('http://www.w3.org/2000/svg', 'linearGradient');
+                        gradient.setAttribute('id', 'blueGradient');
+                        gradient.setAttribute('x1', '0%');
+                        gradient.setAttribute('y1', '0%');
+                        gradient.setAttribute('x2', '100%');
+                        gradient.setAttribute('y2', '100%');
+                        
+                        const stop1 = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
+                        stop1.setAttribute('offset', '0%');
+                        stop1.setAttribute('stop-color', '#3b82f6');
+                        gradient.appendChild(stop1);
+                        
+                        const stop2 = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
+                        stop2.setAttribute('offset', '100%');
+                        stop2.setAttribute('stop-color', '#2563eb');
+                        gradient.appendChild(stop2);
+                        
+                        defs.appendChild(gradient);
+                        svg.appendChild(defs);
+                    }
+
+                    expandAll(node) {
+                        node.collapsed = false;
+                        node.children.forEach(child => this.expandAll(child));
+                    }
+
+                    collapseAll(node) {
+                        node.collapsed = true;
+                        node.children.forEach(child => this.collapseAll(child));
+                    }
+                }
+
+                // Initialize both mindmaps
+                // 1. Existing Freeman Misconduct Mindmap
+                new MindmapViewer('mindmap-container-1', '../documents/mindmaps/detective-steve-freeman-misconduct.opml');
+
+                // 2. New Legal Failures Mindmap
+                new MindmapViewer('mindmap-container-2', '../documents/mindmaps/legal-investigative-failures_ADA_And%20Freeman.opml');
+
+              });
+            </script>
+        </div>
+    </body>
+    </html>
+
+
+
+
+

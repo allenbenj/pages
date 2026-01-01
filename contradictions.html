@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>State v. Benjamin Allen - Contradictions</title>
+    <link rel="stylesheet" href="shared/styles.css?v=639006186749530777">
+    <style>
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0;
+            background: transparent;
+            table-layout: auto; /* Fluid layout */
+        }
+
+        .comparison-table td { 
+            padding: 16px 14px;
+            vertical-align: top;
+            text-align: left;
+            line-height: 1.6;
+            border: 1px solid rgba(255,255,255,0.08);
+            background: rgba(17,17,26,0.5);
+            font-size: 0.95rem;
+            word-break: break-word; /* Ensure text wraps */
+        }
+
+        .comparison-table th {
+            padding: 14px 16px;
+            text-align: left;
+            vertical-align: middle;
+            border: 1px solid rgba(255,255,255,0.12);
+            background: rgba(255,255,255,0.05);
+            color: var(--light);
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            font-size: 0.95rem;
+        }
+
+        /* Distinct row separation */
+        .comparison-table tbody tr {
+            border-bottom: 8px solid var(--primary);
+        }
+
+        .comparison-table tbody tr:last-child {
+            border-bottom: none;
+        }
+
+        /* Column Weighting */
+        .col-issue { width: 10%; }
+        .col-narrative { width: 18%; }
+        .col-source { width: 8%; }
+        .col-contradict { width: 28%; }
+        .col-effect { width: 26%; }
+        .col-evidence { width: 160px; } /* Fixed to fit audio player */
+
+        .evidence-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .evidence-stack audio {
+            width: 150px;
+        }
+    </style>
+</head>
+<body>
+    <div id="contradictions-page">
+    <div class="container">
+        <div class="header">
+            <h1>An Edifice of Lies</h1>
+            <h2>"Perjury is not a mistake—it is a strategy."</h2>
+        </div>
+
+        <link rel="stylesheet" href="shared/carousel-nav.css">
+        
+        <div class="carousel-nav-wrapper">
+            <div class="orbital-ring ring-1"></div>
+            <div class="orbital-ring ring-2"></div>
+            <div class="orbital-ring ring-3"></div>
+            
+            <img src="documents/graphics/logo_for_the_abused.png" alt="Logo" class="carousel-center">
+            
+            <div class="carousel-orbital-track" id="orbitalTrack">
+                <div class="orbital-item" data-href="index.html"><a href="index.html" class="orbital-nav-link">Overview</a></div>
+                <div class="orbital-item" data-href="players.html"><a href="players.html" class="orbital-nav-link">Key Players</a></div>
+                <div class="orbital-item" data-href="connections.html"><a href="connections.html" class="orbital-nav-link">Connections</a></div>
+                <div class="orbital-item" data-href="timeline.html"><a href="timeline.html" class="orbital-nav-link">Timeline</a></div>
+                <div class="orbital-item" data-href="evidence.html"><a href="evidence.html" class="orbital-nav-link">Evidence</a></div>
+                <div class="orbital-item" data-href="misconduct.html"><a href="misconduct.html" class="orbital-nav-link">Misconduct</a></div>
+                <div class="orbital-item" data-href="contradictions.html"><a href="contradictions.html" class="orbital-nav-link">Contradictions</a></div>
+                <div class="orbital-item" data-href="scene.html"><a href="scene.html" class="orbital-nav-link">Scene</a></div>
+                <div class="orbital-item" data-href="contradictions_grouped.html"><a href="contradictions_grouped.html" class="orbital-nav-link">List of Lies</a></div>
+                <div class="orbital-item" data-href="misconductandfailure.html"><a href="misconductandfailure.html" class="orbital-nav-link">Mindmaps</a></div>
+                <div class="orbital-item" data-href="documentspage.html"><a href="documentspage.html" class="orbital-nav-link">Documents</a></div>
+                <div class="orbital-item" data-href="solutions.html"><a href="solutions.html" class="orbital-nav-link">Solutions</a></div>
+            </div>
+            
+            <div class="carousel-indicators" id="indicators"></div>
+            <div class="hover-zone hover-left" id="hoverLeft"><span class="hover-arrow">‹</span></div>
+            <div class="hover-zone hover-right" id="hoverRight"><span class="hover-arrow">›</span></div>
+        </div>
+        
+        <script src="shared/orbital-carousel.js"></script>
+
+        <div class="content-section">
+            <h2 class="section-title" style="text-align: center; margin: 0 auto;">Comprehensive Contradiction Matrix</h2>
+            <p style="font-size:0.9rem; opacity:0.85; margin-bottom: 20px;">
+            Side-by-side mapping of core claims against physical evidence, witness statements, video, and documents.
+            Each row captures a specific clash between what was claimed and what objective evidence shows.
+            </p>
+            
+            <!-- Quick Navigation -->
+            <div class="card" style="margin-bottom: 30px;">
+                <div class="card-label">Quick Navigation</div>
+                <div class="card-title">Jump to Contradiction:</div>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 8px; margin-top: 12px; font-size: 0.85rem;">
+                    <a href="#bonfire" style="color: #60a5fa; text-decoration: none;">• Bonfire / 2am conversation</a>
+                    <a href="#knowledge-ben" style="color: #60a5fa; text-decoration: none;">• Knowledge of Ben</a>
+                    <a href="#reason-stayed" style="color: #60a5fa; text-decoration: none;">• Reason Lauren stayed</a>
+                    <a href="#bruises" style="color: #60a5fa; text-decoration: none;">• Bruises from restraint</a>
+                    <a href="#freeman-bruises" style="color: #60a5fa; text-decoration: none;">• Freeman seeing bruises</a>
+                    <a href="#bathroom" style="color: #60a5fa; text-decoration: none;">• Bathroom sequence</a>
+                    <a href="#hug" style="color: #60a5fa; text-decoration: none;">• Initial hug / warmth</a>
+                    <a href="#pursuit" style="color: #60a5fa; text-decoration: none;">• Who invited whom</a>
+                    <a href="#dispatch" style="color: #60a5fa; text-decoration: none;">• Dispatch labeling</a>
+                    <a href="#arrest" style="color: #60a5fa; text-decoration: none;">• Arrest type</a>
+                    <a href="#carmen" style="color: #60a5fa; text-decoration: none;">• Carmen as neutral witness</a>
+                    <a href="#witness-scope" style="color: #60a5fa; text-decoration: none;">• Scope of interviews</a>
+                    <a href="#exhibit4-auth" style="color: #60a5fa; text-decoration: none;">• Exhibit 4 authenticity</a>
+                    <a href="#exhibit4-admission" style="color: #60a5fa; text-decoration: none;">• Conditional admission</a>
+                    <a href="#dna" style="color: #60a5fa; text-decoration: none;">• DNA / spermatozoa</a>
+                    <a href="#aggravator" style="color: #60a5fa; text-decoration: none;">• Aggravator timing</a>
+                </div>
+            </div>
+            
+            <div class="table-container">
+            <table class="comparison-table">
+            <thead>
+                <tr>
+                <th class="col-issue">Issue</th>
+                <th class="col-narrative">Claim / Narrative</th>
+                <th class="col-source">Source</th>
+                <th class="col-contradict">Contradicting Evidence</th>
+                <th class="col-effect">Effect on Case</th>
+                <th class="col-evidence">Evidence</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr id="bonfire">
+                    <td>Bonfire / 2 a.m. conversation</td>
+                    <td>Accuser says she told Carmen at closing (~2 a.m.) that she was going with Ben to a bonfire.</td>
+                    <td>Accuser trial testimony</td>
+                    <td>Bar video shows Carmen and James leaving at 12:41 a.m.; no overlap with a 2 a.m. conversation. Carmen's interview with Freeman describes Lauren choosing to stay and being fine, with no bonfire plan. Carmen Love had never even heard the name "Ben Allen".</td>
+                    <td>Demonstrates fabrication of key narrative and destroys claimed corroboration by Carmen impacting Freeman's supposed probable cause. Lauren Deal wasn't in the bar at 2 a.m. She was facedown on the concrete outside the bar.</td>
+                    <td>
+                        <div class="evidence-stack">
+                            <audio controls><source src="audio/Carmen_Love_Steve_Freeman_Leaving.wav" type="audio/wav"></source>🎵</audio>
+                            <audio controls><source src="audio/Carmen_Love_Steve_Freeman_Didnt_Know_His_Name.wav" type="audio/wav"></source>🎵</audio>
+                            <img src="documents/graphics/video-icon-8035.png" alt="Video" style="width: 50px; height: 50px;" onclick="openImageModal('video/c Carmen and James Leave.mp4')" style="cursor: pointer;">
+                           
+                </tr>
+                <tr id="reason-stayed">
+                    <td>Reason Lauren stayed at the bar</td>
+                    <td>Later narrative implies she was isolated, vulnerable, and effectively set up.</td>
+                    <td>Evolving accuser narrative</td>
+                    <td>Carmen tells Freeman that Lauren stayed by choice, said she was fine, and would call later. No mention of fear, pressure, or coercion.</td>
+                    <td>Shows the earliest witness account contradicts the later victimhood framing.</td>
+                    <td>
+                        <div class="evidence-stack">
+                            <audio controls><source src="audio/Carmen_Love_Steve_Freeman_Leaving.wav" type="audio/wav"></source>🎵</audio>
+                        </div>
+                    </td>
+                </tr>
+                <tr id="hug">
+                    <td>Initial hug / warmth</td>
+                    <td>Accuser claims she ran up and hugged Ben warmly on seeing him. The hug wasn't until much later.</td>
+                    <td>Accuser trial testimony</td>
+                    <td>Video shows Ben with hands in pockets, rigid posture, no reciprocal touching; later footage shows him casually putting an arm around others but never her.</td>
+                    <td>Video contradicts the portrayed closeness and undercuts the truthfulness of    <td>
+                        <div class="evidence-stack">
+                            
+                            <img src="documents/graphics/video-icon-8035.png" alt="Video" style="width: 50px; height: 50px;" onclick="openImageModal('video/h Still arguing Lauren hugs Allen and he keeps his hands in his pocket.mp4')" style="cursor: pointer;">
+                           
+                </tr> her account.</td>
+                    <td></td>
+                </tr>
+                <tr id="pursuit">
+                    <td>Who invited whom / attachment behavior</td>
+                    <td>Implied that Ben pursued her attention and invited her along.</td>
+                    <td>Later accuser narrative</td>
+                    <td>Video and witnesses show Lauren repeatedly approaching Ben, inserting herself into his plans, and being rebuffed; Ben leaves his own group to be away from her.</td>	 
+                    <td>Undermines coercion framing and displays more of the narrative that the ADA tried to build.</td>
+                    <td></td>
+                </tr>
+                <tr id="bruises">
+                    <td>Bruises from being restrained</td>
+                    <td>Accuser says Ben held her down and left bruises on her arms, which were photographed.</td>
+                    <td>Statements to nurse / investigators</td>
+                    <td>Medical records and photos show a knee contusion and a superficial foot abrasion, with no arm bruising or restraint injuries.</td>
+                    <td>Physical evidence fails to match alleged mechanism of assault.</td>
+                    <td></td>
+                </tr>
+                <tr id="freeman-bruises">
+                    <td>Freeman seeing bruises during recorded interview</td>
+                    <td>Freeman testifies she showed him arm bruises during the recorded interview.</td>
+                    <td>Freeman trial testimony</td>
+                    <td>The recording never shows this. He later relocates the alleged bruise review to the lobby, off camera, when challenged.</td>
+                    <td>Suggests tailoring of testimony and retroactive repair of a non-existent observation.</td>
+                    <td></td>
+                </tr>
+                <tr id="bathroom">
+                    <td>Bathroom sequence / clothing</td>
+                    <td>Accuser describes pulling pants down to pee, then pulling them fully up, then being suddenly pushed and forcibly undressed.</td>
+                    <td>Accuser narrative of the bathroom incident</td>
+                    <td>Biomechanically awkward: tight leggings must be removed twice in seconds, with one hand allegedly restraining her, no injuries consistent with a violent struggle, and no semen detected.</td>
+                    <td>Implausible sequence points toward narrative construction rather than lived event.</td>
+                    <td></td>
+                </tr>
+                <tr id="knowledge-ben">
+                    <td>Knowledge of Ben / Relationship depth</td>
+                    <td>Accuser portrays Ben as someone she knew well through an on-and-off relationship with his ex.</td>
+                    <td>Accuser statements to Haines and at trial</td>
+                    <td>She also states she hadn't seen him in a year and thought he was deployed. Records show structured, supervised contact between Ben and Tiffany, not casual cohabitation.</td>
+                    <td>Undermines "position of trust or confidence" aggravator; suggests later embellishment for sentencing leverage.</td>
+                    <td></td>
+                </tr>
+                <tr id="dispatch">
+                    <td>Dispatch labeling as sexual assault</td>
+                    <td>Case framed as sexual assault from the outset based on clear information.</td>
+                    <td>Dispatch logs and testimony</td>
+                    <td>Dispatch uses sexual assault language before Deal herself uses the term; Freeman is notified of a sexual assault case before Haines completes initial questioning.</td>
+                    <td>Shows charge category was pre-selected before facts were fully gathered.</td>
+                    <td></td>
+                </tr>
+                <tr id="arrest">
+                    <td>Arrest type (with vs without warrant)</td>
+                    <td>Freeman says the magistrate issued a warrant and only then was Allen processed.</td>
+                    <td>Freeman trial testimony</td>
+                    <td>Magistrate form is checked as "arrest without warrant," reflecting post-arrest probable cause review under statute, not pre-arrest warrant issuance.</td>
+                    <td>Indicates misleading testimony about the seizure's legality and sequence.</td>
+                    <td></td>
+                </tr>
+                <tr id="carmen">
+                    <td>Carmen as neutral third party</td>
+                    <td>Freeman treats Carmen as just another witness supporting probable cause.</td>
+                    <td>Investigative paperwork and testimony</td>
+                    <td>Carmen is Freeman's relative; this relationship was never disclosed, and her original statements undercut the accuser. This is classic conflict-of-interest plus Brady–Giglio material.</td>
+                    <td>Corrupts the integrity of the investigation and the magistrate's probable cause assessment.</td>
+                    <td></td>
+                </tr>
+                <tr id="witness-scope">
+                    <td>Scope of witness interviews</td>
+                    <td>Investigation was thorough and neutral.</td>
+                    <td>Freeman's description of his workup</td>
+                    <td>He never interviews James or Peter, despite their being present all night and named by Carmen and others. He does, however, press for names when a witness might support the State.</td>
+                    <td>Shows selective investigation and a pattern of only chasing evidence that fits the theory.</td>
+                    <td></td>
+                </tr>
+                <tr id="exhibit4-auth">
+                    <td>Exhibit 4 – authenticity and authorship</td>
+                    <td>Facebook messages are between Lauren and Ben and show planning or sexual interest.</td>
+                    <td>State's use of Exhibit 4</td>
+                    <td>Screenshots include lines that the sender is not Ben but "Matt using his phone," and a later apology from Ben that he didn't have the phone. No metadata, no full thread, and no phone-extraction testimony are provided.</td>
+                    <td>Authentication is fatally compromised; Exhibit 4 cannot reliably be tied to Ben.</td>
+                    <td></td>
+                </tr>
+                <tr id="exhibit4-admission">
+                    <td>Conditional admission of Exhibit 4</td>
+                    <td>Court admitted Exhibit 4 as proper evidence.</td>
+                    <td>ADA's posture at trial</td>
+                    <td>Judge allowed only conditional admission of the first page, contingent on proof of an earlier bonfire-related conversation. The State never fulfilled that condition but proceeded as if fully admitted.</td>
+                    <td>Turns a conditional ruling into a de facto permanent admission, bypassing foundation requirements.</td>
+                    <td></td>
+                </tr>
+                <tr id="dna">
+                    <td>DNA / spermatozoa evidence</td>
+                    <td>State implies there is sperm evidence consistent with intercourse along with severe damage to the accusers vagina. The ADA change the mechanism of injury during the trial since there was no injury as she claimed.</td>
+                    <td>ADA's statements during plea discussions</td>
+                    <td>The State had no DNA evidence when the offer was made as the test from 04/21/2020 showed an insufficient amount of male DNA. After the plea demand the ADA submitted for sperm testing on 02/03/2023 which came back negative. ADA later claims she misunderstood the report despite not even having submitted for the testing of sperm at the time. This is an obvious fabrication.</td>
+                    <td>Plea leverage built on a misrepresentation; later retreat framed as confusion strains credibility. Ambushed the defense with the mental injury leaving no time for preparation.</td>
+                    <td>
+                        <div class="evidence-stack">
+                            <img src="documents/graphics/first_dna_none.png" 
+                                     alt="Click to view document"
+                                     title="Click to view First DNA Report"
+                                     class="apple-img"
+                                     style="width: 50px; height: auto;" onclick="openImageModal('documents/graphics/first_dna_none.png')" style="cursor: zoom-in;">
+                            <img src="documents/graphics/ADA_submission.png" 
+                                     alt="Click to view document"
+                                     title="Click to view ADA Submission"
+                                     class="apple-img"
+                                     style="width: 50px; height: auto;" onclick="openImageModal('documents/graphics/ADA_submission.png')" style="cursor: zoom-in;">
+                            <img src="documents/graphics/No_sperm.png" 
+                                     alt="Click to view document"
+                                     title="Click to view No Sperm Report"
+                                     class="apple-img"
+                                     style="width: 50px; height: auto;" onclick="openImageModal('documents/graphics/No_sperm.png')" style="cursor: zoom-in;">
+                        </div>
+                    </td>
+                </tr>
+                <tr id="aggravator">
+                    <td>Aggravator timing</td>
+                    <td>"Position of trust or confidence" is a natural outgrowth of the facts.</td>
+                    <td>Charging decisions post-plea refusal</td>
+                    <td>Aggravator appears only after defendant rejects the plea; no new evidence emerges between the plea rejection and filing.</td>
+                    <td>Strong indicator of prosecutorial vindictiveness and punishment for asserting trial rights. Prosecutor following through on threat if plea refused.</td>
+                    <td>
+                        <div class="evidence-stack">
+                            <img src="documents/graphics/aggravating_factor.png" 
+                                     alt="Click to view document"
+                                     class="apple-img"
+                                     style="width: 50px; height: auto;" onclick="openImageModal('documents/graphics/aggravating_factor.png')" style="cursor: zoom-in;">
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+            </table>
+            </div>
+        </div>
+        <script src="shared/card-mapper.js"></script>
+        <script src="shared/card-colors.js"></script>
+    </div>
+    </div>
+
+    <!-- Image Modal -->
+    <div id="imageModal" onclick="closeImageModal()">
+        <span class="modal-close" onclick="closeImageModal()">&times;</span>
+        <img id="modalImage" src="" alt="Full resolution image">        <video id="modalVideo" controls></video>
+    </div>
+
+    <script src="shared/image-modal.js"></script>
+    </body>
+    </html>
+
+
