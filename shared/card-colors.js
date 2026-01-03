@@ -21,19 +21,27 @@
         green: '#2e7d32'
     };
 
+    // Pre-compile a single function to find matching color
+    function findMatchingColor(text) {
+        const lowerText = text.toLowerCase().trim();
+        for (const [colorName, keywords] of Object.entries(colorMap)) {
+            for (let i = 0; i < keywords.length; i++) {
+                if (lowerText.includes(keywords[i])) {
+                    return colors[colorName];
+                }
+            }
+        }
+        return null;
+    }
+
     // Find all cards with labels and apply border colors
     document.querySelectorAll('.card').forEach(card => {
         const label = card.querySelector('.card-label');
         if (!label) return;
 
-        const labelText = label.textContent.toLowerCase().trim();
-        
-        // Check which color category matches
-        for (const [colorName, keywords] of Object.entries(colorMap)) {
-            if (keywords.some(keyword => labelText.includes(keyword))) {
-                card.style.borderLeft = `6px solid ${colors[colorName]}`;
-                break;
-            }
+        const color = findMatchingColor(label.textContent);
+        if (color) {
+            card.style.borderLeft = `6px solid ${color}`;
         }
     });
 
@@ -44,18 +52,13 @@
         'span.pill'                             // Explicit class pills
     ];
     
-    pillSelectors.forEach(selector => {
-        document.querySelectorAll(selector).forEach(pill => {
-            const pillText = pill.textContent.toLowerCase().trim();
-            
-            // Determine color based on content
-            for (const [colorName, keywords] of Object.entries(colorMap)) {
-                if (keywords.some(keyword => pillText.includes(keyword))) {
-                    pill.style.background = colors[colorName];
-                    pill.style.backgroundColor = colors[colorName];
-                    return; // Stop after first match
-                }
-            }
-        });
+    // Combine all pill selectors into one query
+    const allPillsSelector = pillSelectors.join(', ');
+    document.querySelectorAll(allPillsSelector).forEach(pill => {
+        const color = findMatchingColor(pill.textContent);
+        if (color) {
+            pill.style.background = color;
+            pill.style.backgroundColor = color;
+        }
     });
 })();

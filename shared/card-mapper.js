@@ -24,17 +24,22 @@
     }
 
     function applyMapping() {
+        // Pre-compile mapping keys for faster lookup
+        const mappingEntries = Object.entries(mapping);
+        
         document.querySelectorAll('.card, .evidence-card, .apple-card, .action-card, .stat-card').forEach(card => {
             const labelEl = card.querySelector('.card-label, .evidence-title, .apple-title');
             if (!labelEl) return;
-            const key = slug(labelEl.textContent || '');
-            let assigned = null;
-            Object.keys(mapping).some(k => {
-                if (key.indexOf(k) >= 0) { assigned = mapping[k]; return true; }
-                return false;
-            });
-            if (assigned) {
-                card.classList.add(assigned);
+            
+            const key = slug(labelEl.textContent);
+            
+            // Find first matching key
+            for (let i = 0; i < mappingEntries.length; i++) {
+                const [k, className] = mappingEntries[i];
+                if (key.includes(k)) {
+                    card.classList.add(className);
+                    break;
+                }
             }
         });
     }

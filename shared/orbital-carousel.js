@@ -28,6 +28,8 @@
     let animationFrame;
     let hoverDirection = 0;
     let hoverRotateInterval;
+    let isAnimating = false;
+    let cachedIndicators = null;
     
     // Create indicators
     if (indicatorsContainer) {
@@ -81,7 +83,12 @@
             }
         });
         
-        document.querySelectorAll('.carousel-indicator').forEach((dot, i) => {
+        // Cache indicators on first call
+        if (!cachedIndicators) {
+            cachedIndicators = document.querySelectorAll('.carousel-indicator');
+        }
+        
+        cachedIndicators.forEach((dot, i) => {
             dot.classList.toggle('active', i === activeIndex);
         });
     }
@@ -91,16 +98,28 @@
         if (Math.abs(diff) > 0.0001) {
             currentRotation += diff * 0.08;
             updatePositions();
+            animationFrame = requestAnimationFrame(animate);
+        } else {
+            // Animation complete, stop the loop
+            isAnimating = false;
         }
-        animationFrame = requestAnimationFrame(animate);
+    }
+    
+    function startAnimation() {
+        if (!isAnimating) {
+            isAnimating = true;
+            animate();
+        }
     }
     
     function rotateToNext() {
         targetRotation -= (2 * Math.PI) / totalItems;
+        startAnimation();
     }
     
     function rotateToPrev() {
         targetRotation += (2 * Math.PI) / totalItems;
+        startAnimation();
     }
     
     function goToItem(index) {
@@ -112,25 +131,36 @@
         if (diff < -Math.PI) diff += 2 * Math.PI;
         
         targetRotation = currentRotation + diff;
+        startAnimation();
     }
     
     // Continuous rotation while hovering
     function startHoverRotation(direction) {
         hoverDirection = direction;
-        clearInterval(hoverRotateInterval);
+        stopHoverRotation();
         
-        hoverRotateInterval = setInterval(() => {
-            if (direction === 1) {
+        function rotateStep() {
+            if (hoverDirection === 0) return;
+            
+            if (hoverDirection === 1) {
                 targetRotation -= 0.025;
             } else {
                 targetRotation += 0.025;
             }
-        }, 50);
+            
+            startAnimation();
+            hoverRotateInterval = requestAnimationFrame(rotateStep);
+        }
+        
+        rotateStep();
     }
     
     function stopHoverRotation() {
         hoverDirection = 0;
-        clearInterval(hoverRotateInterval);
+        if (hoverRotateInterval) {
+            cancelAnimationFrame(hoverRotateInterval);
+            hoverRotateInterval = null;
+        }
     }
     
     // Hover zone events
@@ -143,5 +173,4 @@
     
     // Initialize - static until user hovers
     updatePositions();
-    animate();
 })();
