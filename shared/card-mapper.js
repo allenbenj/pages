@@ -31,7 +31,7 @@
             const labelEl = card.querySelector('.card-label, .evidence-title, .apple-title');
             if (!labelEl) return;
             
-            const key = slug(labelEl.textContent);
+            const key = slug(labelEl.textContent || '');
             
             // Find first matching key
             for (let i = 0; i < mappingEntries.length; i++) {

@@ -39,6 +39,8 @@
             dot.addEventListener('click', () => goToItem(i));
             indicatorsContainer.appendChild(dot);
         }
+        // Cache indicators after creation
+        cachedIndicators = indicatorsContainer.querySelectorAll('.carousel-indicator');
     }
     
     function updatePositions() {
@@ -70,6 +72,8 @@
     }
     
     function updateIndicators() {
+        if (!cachedIndicators) return;
+        
         const angleStep = (2 * Math.PI) / totalItems;
         let activeIndex = 0;
         let maxDepth = -Infinity;
@@ -82,11 +86,6 @@
                 activeIndex = i;
             }
         });
-        
-        // Cache indicators on first call
-        if (!cachedIndicators) {
-            cachedIndicators = document.querySelectorAll('.carousel-indicator');
-        }
         
         cachedIndicators.forEach((dot, i) => {
             dot.classList.toggle('active', i === activeIndex);
