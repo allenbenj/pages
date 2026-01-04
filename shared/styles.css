@@ -960,6 +960,65 @@ body {
 .mindmap-node:not(.collapsed) > .node-label::after {
     content: " ▾";
 }
+/* --- Lady Justice Interpretive Hover Overlay --- */
+
+.image-hover-container {
+    position: relative;
+    display: inline-block;
+    max-width: 100%;
+    margin: 30px auto;
+}
+
+.image-hover-container img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+}
+
+/* Overlay text */
+.image-hover-overlay {
+    position: absolute;
+    inset: 0;
+    padding: 28px;
+    background: rgba(5, 5, 9, 0.94); /* matches --dark */
+    color: var(--light);
+    font-size: 0.95rem;
+    line-height: 1.55;
+    overflow-y: auto;
+    border-radius: 6px;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease-in-out;
+}
+
+/* Reveal on hover */
+.image-hover-container:hover .image-hover-overlay {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Subtle emphasis for section headers inside overlay */
+.image-hover-overlay strong {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+/* Quoted lines */
+.image-hover-overlay em {
+    display: block;
+    margin-top: 10px;
+    font-style: italic;
+    opacity: 0.9;
+}
+
+/* Mobile: disable hover overlay (image remains clean) */
+@media (max-width: 768px) {
+    .image-hover-overlay {
+        display: none;
+    }
+}
 
 
 /* --- Connections Diagram Styles --- */
